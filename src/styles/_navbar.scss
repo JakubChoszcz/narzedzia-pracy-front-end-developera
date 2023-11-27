@@ -1,0 +1,77 @@
+.navbar {
+    @apply fixed top-0 left-0 w-full bg-white shadow-md z-20;
+
+    &__wrapper {
+        @apply max-w-5xl px-4 py-4 lg:py-8 mx-auto flex justify-between items-center;
+
+        .navbar__logo {
+            p {
+                @apply text-base lg:text-xl flex flex-col sm:flex-row items-start sm:items-center gap-0 sm:gap-2 -z-10;
+
+                span {
+                    @apply text-sm font-extralight;
+
+                    &:nth-of-type(1) {
+                        @apply hidden sm:block;
+                    }
+                }
+            }
+        }
+
+        .navbar__hamburger-button {
+            @apply w-8 h-7 relative lg:hidden z-10;
+
+            div {
+                @apply w-full h-1 absolute left-0 bg-blue-500 transition-all rounded-full duration-300;
+
+                &:nth-of-type(1) {
+                    @apply top-0 translate-y-0;
+                }
+
+                &:nth-of-type(2) {
+                    @apply top-1/2 -translate-y-1/2;
+                }
+
+                &:nth-of-type(3) {
+                    @apply top-full -translate-y-full;
+                }
+            }
+
+            &.active {
+                div {
+                    &:nth-of-type(1) {
+                        @apply top-1/2 -translate-y-1/2 rotate-45;
+                    }
+
+                    &:nth-of-type(2) {
+                        @apply top-1/2 -translate-y-1/2 opacity-0;
+                    }
+
+                    &:nth-of-type(3) {
+                        @apply top-1/2 -translate-y-1/2 -rotate-45;
+                    }
+                }
+            }
+        }
+
+        .navbar__links {
+            @apply flex flex-col lg:flex-row justify-center items-center gap-4 fixed lg:static top-0 right-0 translate-x-full lg:translate-x-0 bg-white -z-10 lg:z-0 pt-20 lg:pt-0 pr-4 lg:pr-0 pb-8 lg:pb-0 pl-8 lg:pl-0 shadow-md lg:shadow-none transition-all duration-300;
+
+            &.active {
+                @apply translate-x-0;
+            }
+
+            li {
+                @apply text-base lg:font-extralight;
+
+                a {
+                    @apply transition-colors;
+
+                    &:hover {
+                        @apply text-blue-500;
+                    }
+                }
+            }
+        }
+    }
+}

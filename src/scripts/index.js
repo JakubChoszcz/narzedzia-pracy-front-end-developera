@@ -1,4 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // hamburger
+    const hamburgerButton = document.querySelector('.navbar__hamburger-button');
+    const hamburgerLinksList = document.querySelector('.navbar__links');
+    const hamburgerLinks = hamburgerLinksList.querySelectorAll('a');
+
+    hamburgerButton.addEventListener('click', () => {
+        handleToggleHamburger();
+    })
+
+    hamburgerLinks.forEach(hamburgerLink => {
+        hamburgerLink.addEventListener('click', () => {
+            handleToggleHamburger();
+        })
+    })
+
+    function handleToggleHamburger() {
+        hamburgerButton.classList.toggle('active');
+        hamburgerLinksList.classList.toggle('active');
+    }
+
+    // scroll top
+    const scrollTopButton = document.getElementById('scroll-top')
+
+    document.addEventListener('scroll', () => {
+        const { scrollY } = window;
+
+        if (scrollY > 100) {
+            scrollTopButton.classList.add('active');
+        } else {
+            scrollTopButton.classList.remove('active');
+        }
+    })
+
+    scrollTopButton.addEventListener('click', () => {
+        handleScrollTop();
+    })
+
+    function handleScrollTop() {
+        window.scrollTo(0, 0);
+    }
+
     // testimonials
     const testimonials = document.querySelectorAll('.testimonials');
 

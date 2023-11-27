@@ -2,14 +2,14 @@
     @apply bg-white;
 
     &__wrapper {
-        @apply max-w-5xl mx-auto px-4 py-4 lg:py-8 flex flex-col-reverse lg:flex-row items-center lg:items-end justify-center lg:justify-between gap-8;
+        @apply max-w-5xl mx-auto px-4 pt-4 lg:pt-8 pb-24 flex flex-col-reverse lg:flex-row items-center lg:items-end justify-center lg:justify-between gap-4 lg:gap-8;
 
         & > p {
             @apply text-sm text-center lg:text-left;
         }
 
         ul {
-            @apply flex justify-center items-center gap-8 flex-wrap;
+            @apply flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-8;
 
             li {
                 @apply flex flex-col justify-center items-center gap-1;
@@ -23,7 +23,7 @@
                 }
 
                 ol {
-                    @apply flex justify-center items-center gap-4;
+                    @apply flex justify-center items-center gap-3;
 
                     li {
                         a {

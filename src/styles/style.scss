@@ -4,10 +4,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lato:wght@100;300;400;700;900&family=Poppins:wght@200;400;600&display=swap');
 
-@import "./navigation";
+@import "./navbar";
 @import "./hero";
 @import "./section";
 @import "./footer";
+
+html {
+    @apply scroll-smooth;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -15,7 +19,7 @@ body {
 }
 
 main {
-    @apply pt-[60px] lg:pt-[90px];
+    @apply pt-[76px] sm:pt-[60px] lg:pt-[90px];
 }
 
 .link {
@@ -51,5 +55,17 @@ main {
 
     &::after {
         @apply w-3 h-3 bg-blue-400 block content-[''] absolute right-full -translate-x-2 top-1/2 -translate-y-1/2;
+    }
+}
+
+#scroll-top {
+    @apply fixed right-4 bottom-4 translate-y-20 bg-blue-500 w-16 h-16 text-2xl rounded-full shadow-md rotate-0 text-white transition-all duration-1000 z-10;
+
+    &.active {
+        @apply translate-y-0 -rotate-90;
+    }
+
+    &:hover {
+        @apply bg-white text-blue-500;
     }
 }
