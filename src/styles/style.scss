@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lato:wght@100;300;400;700;900&family=Poppins:wght@200;400;600&display=swap');
+
+@import "./navigation";
+@import "./hero";
+@import "./section";
+@import "./footer";
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url("../../assets/topography.svg");
+}
+
+main {
+    @apply pt-[60px] lg:pt-[90px];
+}
+
+.link {
+    @apply transition-colors;
+
+    &:hover {
+        @apply text-blue-500;
+    }
+}
+
+.btn {
+    @apply block px-6 py-1 rounded-full text-sm transition-colors border-[1px];
+
+    &__primary {
+        @apply  bg-blue-500 border-blue-500 text-white;
+
+        &:hover {
+            @apply bg-transparent text-black;
+        }
+    }
+
+    &__secondary {
+        @apply border-black text-black;
+
+        &:hover {
+            @apply bg-blue-500 border-blue-500 text-white;
+        }
+    }
+}
+
+.icon {
+    @apply ml-6 relative;
+
+    &::after {
+        @apply w-3 h-3 bg-blue-400 block content-[''] absolute right-full -translate-x-2 top-1/2 -translate-y-1/2;
+    }
+}

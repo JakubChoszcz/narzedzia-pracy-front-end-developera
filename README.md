@@ -1,0 +1,1 @@
+To run project for development - npx tailwindcss -i ./src/styles/style.css -o ./src/styles/dist/style.css --watch

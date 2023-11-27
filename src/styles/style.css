@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lato:wght@100;300;400;700;900&family=Poppins:wght@200;400;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.navigation {
+  @apply fixed top-0 left-0 w-full bg-white shadow-md z-20;
+}
+.navigation__wrapper {
+  @apply max-w-5xl px-4 py-4 lg:py-8 mx-auto flex justify-between items-center;
+}
+.navigation__wrapper div p {
+  @apply text-lg lg:text-xl flex items-center gap-1 lg:gap-2;
+}
+.navigation__wrapper div p span {
+  @apply text-sm lg:text-base font-extralight;
+}
+.navigation__wrapper ul {
+  @apply flex justify-center items-center gap-2 lg:gap-4;
+}
+.navigation__wrapper ul li {
+  @apply text-sm lg:text-base font-extralight;
+}
+.navigation__wrapper ul li a {
+  @apply transition-colors;
+}
+.navigation__wrapper ul li a:hover {
+  @apply text-blue-500;
+}
+
+.hero {
+  @apply relative;
+}
+.hero::after {
+  @apply absolute top-0 left-0 w-full lg:w-2/5 block content-[""] bg-[#e6dace] h-1/2 lg:h-full;
+}
+.hero__wrapper {
+  @apply max-w-4xl mx-auto px-4 py-4 lg:py-32 grid lg:grid-cols-2 grid-cols-1 gap-4 lg:gap-8 relative z-10;
+}
+.hero__wrapper .hero__card {
+  @apply bg-[#f4ece6] flex flex-col justify-center items-center h-full shadow-md;
+}
+.hero__wrapper .hero__card div {
+  @apply flex flex-col justify-center items-center py-4 px-4 lg:px-8 h-full w-full;
+}
+.hero__wrapper .hero__card div img {
+  @apply max-w-[256px] max-h-[256px] w-full h-full rounded-full mb-8;
+}
+.hero__wrapper .hero__card div p.name {
+  @apply text-xl lg:text-2xl font-semibold mb-8 text-center relative;
+}
+.hero__wrapper .hero__card div p.name::after {
+  @apply w-full h-[3px] block content-[""] bg-blue-500 absolute top-full translate-y-2;
+}
+.hero__wrapper .hero__card div p.text {
+  @apply text-sm lg:text-base tracking-widest text-center;
+}
+.hero__wrapper .hero__card ul {
+  @apply flex justify-center items-center gap-4 bg-white w-full p-2;
+}
+.hero__wrapper .hero__card ul li a {
+  @apply text-xl transition-colors;
+}
+.hero__wrapper .hero__card ul li a:hover {
+  @apply text-blue-500;
+}
+.hero__wrapper .hero__content {
+  @apply flex flex-col justify-center items-start gap-4 lg:gap-8 py-4 lg:py-8;
+}
+.hero__wrapper .hero__content h1 {
+  @apply text-4xl lg:text-8xl font-semibold;
+}
+.hero__wrapper .hero__content h2 {
+  @apply text-xl lg:text-2xl;
+}
+.hero__wrapper .hero__content ul {
+  @apply flex justify-center items-center gap-2;
+}
+.hero__wrapper .hero__content p {
+  @apply text-sm lg:text-base tracking-wide;
+}
+
+.section {
+  @apply py-16;
+}
+.section:nth-of-type(odd) {
+  @apply bg-stone-50;
+}
+.section__wrapper {
+  @apply max-w-5xl mx-auto px-4;
+}
+.section__wrapper h2 {
+  @apply text-xl lg:text-2xl mb-8;
+}
+.section__wrapper .section__content--grid {
+  @apply grid grid-cols-1 sm:grid-cols-3 grid-rows-3 gap-4 sm:h-[478px] md:h-[640px] lg:h-[768px];
+}
+.section__wrapper .section__content--grid div {
+  @apply w-full sm:h-auto relative shadow-md transition-transform duration-300;
+}
+.section__wrapper .section__content--grid div:hover {
+  @apply scale-105;
+}
+.section__wrapper .section__content--grid div img {
+  @apply object-cover w-full h-full;
+}
+.section__wrapper .section__content--grid div a {
+  @apply absolute w-full h-full flex flex-col justify-center items-center gap-2 p-4 bg-[#e6dace90] opacity-0 transition-opacity duration-300;
+}
+.section__wrapper .section__content--grid div a:hover {
+  @apply opacity-100;
+}
+.section__wrapper .section__content--grid div a p.title {
+  @apply text-base text-center font-semibold;
+}
+.section__wrapper .section__content--grid div a p.description {
+  @apply text-sm text-center;
+}
+@media (min-width: 640px) {
+  .section__wrapper .section__content--grid .div1 {
+    grid-area: 1/1/2/3;
+  }
+  .section__wrapper .section__content--grid .div2 {
+    grid-area: 2/1/4/2;
+  }
+  .section__wrapper .section__content--grid .div3 {
+    grid-area: 2/2/3/3;
+  }
+  .section__wrapper .section__content--grid .div4 {
+    grid-area: 3/2/4/3;
+  }
+  .section__wrapper .section__content--grid .div5 {
+    grid-area: 1/3/4/4;
+  }
+}
+
+.footer {
+  @apply bg-white;
+}
+.footer__wrapper {
+  @apply max-w-5xl mx-auto px-4 py-4 lg:py-8 flex flex-col-reverse lg:flex-row items-center lg:items-end justify-center lg:justify-between gap-8;
+}
+.footer__wrapper > p {
+  @apply text-sm text-center lg:text-left;
+}
+.footer__wrapper ul {
+  @apply flex justify-center items-center gap-8 flex-wrap;
+}
+.footer__wrapper ul li {
+  @apply flex flex-col justify-center items-center gap-1;
+}
+.footer__wrapper ul li p.title {
+  @apply text-sm font-semibold text-center;
+}
+.footer__wrapper ul li p.text {
+  @apply text-sm text-center;
+}
+.footer__wrapper ul li ol {
+  @apply flex justify-center items-center gap-4;
+}
+.footer__wrapper ul li ol li a {
+  @apply text-base;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-image: url("../../assets/topography.svg");
+}
+
+main {
+  @apply pt-[60px] lg:pt-[90px];
+}
+
+.link {
+  @apply transition-colors;
+}
+.link:hover {
+  @apply text-blue-500;
+}
+
+.btn {
+  @apply block px-6 py-1 rounded-full text-sm transition-colors border-[1px];
+}
+.btn__primary {
+  @apply bg-blue-500 border-blue-500 text-white;
+}
+.btn__primary:hover {
+  @apply bg-transparent text-black;
+}
+.btn__secondary {
+  @apply border-black text-black;
+}
+.btn__secondary:hover {
+  @apply bg-blue-500 border-blue-500 text-white;
+}
+
+.icon {
+  @apply ml-6 relative;
+}
+.icon::after {
+  @apply w-3 h-3 bg-blue-400 block content-[""] absolute right-full -translate-x-2 top-1/2 -translate-y-1/2;
+}/*# sourceMappingURL=style.css.map */

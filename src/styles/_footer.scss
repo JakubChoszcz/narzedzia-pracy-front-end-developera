@@ -1,0 +1,37 @@
+.footer {
+    @apply bg-white;
+
+    &__wrapper {
+        @apply max-w-5xl mx-auto px-4 py-4 lg:py-8 flex flex-col-reverse lg:flex-row items-center lg:items-end justify-center lg:justify-between gap-8;
+
+        & > p {
+            @apply text-sm text-center lg:text-left;
+        }
+
+        ul {
+            @apply flex justify-center items-center gap-8 flex-wrap;
+
+            li {
+                @apply flex flex-col justify-center items-center gap-1;
+
+                p.title {
+                    @apply text-sm font-semibold text-center;
+                }
+
+                p.text {
+                    @apply text-sm text-center;
+                }
+
+                ol {
+                    @apply flex justify-center items-center gap-4;
+
+                    li {
+                        a {
+                            @apply text-base;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
