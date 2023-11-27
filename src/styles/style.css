@@ -2,28 +2,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.navigation {
+.navbar {
   @apply fixed top-0 left-0 w-full bg-white shadow-md z-20;
 }
-.navigation__wrapper {
+.navbar__wrapper {
   @apply max-w-5xl px-4 py-4 lg:py-8 mx-auto flex justify-between items-center;
 }
-.navigation__wrapper div p {
-  @apply text-lg lg:text-xl flex items-center gap-1 lg:gap-2;
+.navbar__wrapper .navbar__logo p {
+  @apply text-base lg:text-xl flex flex-col sm:flex-row items-start sm:items-center gap-0 sm:gap-2 -z-10;
 }
-.navigation__wrapper div p span {
-  @apply text-sm lg:text-base font-extralight;
+.navbar__wrapper .navbar__logo p span {
+  @apply text-sm font-extralight;
 }
-.navigation__wrapper ul {
-  @apply flex justify-center items-center gap-2 lg:gap-4;
+.navbar__wrapper .navbar__logo p span:nth-of-type(1) {
+  @apply hidden sm:block;
 }
-.navigation__wrapper ul li {
-  @apply text-sm lg:text-base font-extralight;
+.navbar__wrapper .navbar__hamburger-button {
+  @apply w-8 h-7 relative lg:hidden z-10;
 }
-.navigation__wrapper ul li a {
+.navbar__wrapper .navbar__hamburger-button div {
+  @apply w-full h-1 absolute left-0 bg-blue-500 transition-all rounded-full duration-300;
+}
+.navbar__wrapper .navbar__hamburger-button div:nth-of-type(1) {
+  @apply top-0 translate-y-0;
+}
+.navbar__wrapper .navbar__hamburger-button div:nth-of-type(2) {
+  @apply top-1/2 -translate-y-1/2;
+}
+.navbar__wrapper .navbar__hamburger-button div:nth-of-type(3) {
+  @apply top-full -translate-y-full;
+}
+.navbar__wrapper .navbar__hamburger-button.active div:nth-of-type(1) {
+  @apply top-1/2 -translate-y-1/2 rotate-45;
+}
+.navbar__wrapper .navbar__hamburger-button.active div:nth-of-type(2) {
+  @apply top-1/2 -translate-y-1/2 opacity-0;
+}
+.navbar__wrapper .navbar__hamburger-button.active div:nth-of-type(3) {
+  @apply top-1/2 -translate-y-1/2 -rotate-45;
+}
+.navbar__wrapper .navbar__links {
+  @apply flex flex-col lg:flex-row justify-center items-center gap-4 fixed lg:static top-0 right-0 translate-x-full lg:translate-x-0 bg-white -z-10 lg:z-0 pt-20 lg:pt-0 pr-4 lg:pr-0 pb-8 lg:pb-0 pl-8 lg:pl-0 shadow-md lg:shadow-none transition-all duration-300;
+}
+.navbar__wrapper .navbar__links.active {
+  @apply translate-x-0;
+}
+.navbar__wrapper .navbar__links li {
+  @apply text-base lg:font-extralight;
+}
+.navbar__wrapper .navbar__links li a {
   @apply transition-colors;
 }
-.navigation__wrapper ul li a:hover {
+.navbar__wrapper .navbar__links li a:hover {
   @apply text-blue-500;
 }
 
@@ -179,13 +209,13 @@
   @apply bg-white;
 }
 .footer__wrapper {
-  @apply max-w-5xl mx-auto px-4 py-4 lg:py-8 flex flex-col-reverse lg:flex-row items-center lg:items-end justify-center lg:justify-between gap-8;
+  @apply max-w-5xl mx-auto px-4 pt-4 lg:pt-8 pb-24 flex flex-col-reverse lg:flex-row items-center lg:items-end justify-center lg:justify-between gap-4 lg:gap-8;
 }
 .footer__wrapper > p {
   @apply text-sm text-center lg:text-left;
 }
 .footer__wrapper ul {
-  @apply flex justify-center items-center gap-8 flex-wrap;
+  @apply flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-8;
 }
 .footer__wrapper ul li {
   @apply flex flex-col justify-center items-center gap-1;
@@ -197,10 +227,14 @@
   @apply text-sm text-center;
 }
 .footer__wrapper ul li ol {
-  @apply flex justify-center items-center gap-4;
+  @apply flex justify-center items-center gap-3;
 }
 .footer__wrapper ul li ol li a {
   @apply text-base;
+}
+
+html {
+  @apply scroll-smooth;
 }
 
 body {
@@ -209,7 +243,7 @@ body {
 }
 
 main {
-  @apply pt-[60px] lg:pt-[90px];
+  @apply pt-[76px] sm:pt-[60px] lg:pt-[90px];
 }
 
 .link {
@@ -240,4 +274,14 @@ main {
 }
 .icon::after {
   @apply w-3 h-3 bg-blue-400 block content-[""] absolute right-full -translate-x-2 top-1/2 -translate-y-1/2;
+}
+
+#scroll-top {
+  @apply fixed right-4 bottom-4 translate-y-20 bg-blue-500 w-16 h-16 text-2xl rounded-full shadow-md rotate-0 text-white transition-all duration-1000 z-10;
+}
+#scroll-top.active {
+  @apply translate-y-0 -rotate-90;
+}
+#scroll-top:hover {
+  @apply bg-white text-blue-500;
 }/*# sourceMappingURL=style.css.map */
