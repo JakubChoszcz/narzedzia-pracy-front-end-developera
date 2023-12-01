@@ -122,7 +122,7 @@
   @apply text-xl lg:text-2xl mb-8;
 }
 .section__wrapper .windows {
-  @apply grid grid-cols-1 sm:grid-cols-3 grid-rows-3 gap-4 sm:h-[478px] md:h-[640px] lg:h-[768px];
+  @apply grid grid-cols-2 sm:grid-cols-3 grid-rows-3 gap-4 sm:h-[478px] md:h-[640px] lg:h-[768px];
 }
 .section__wrapper .windows div {
   @apply w-full sm:h-auto relative shadow-md transition-transform duration-300;
@@ -134,16 +134,16 @@
   @apply object-cover w-full h-full;
 }
 .section__wrapper .windows div a {
-  @apply absolute w-full h-full flex flex-col justify-center items-center gap-2 p-4 bg-[#e6dace90] opacity-0 transition-opacity duration-300;
+  @apply absolute w-full h-full flex flex-col justify-center items-center gap-0 sm:gap-2 p-1 sm:p-4 bg-[#e6dace90] opacity-0 transition-opacity duration-300;
 }
 .section__wrapper .windows div a:hover {
   @apply opacity-100;
 }
 .section__wrapper .windows div a p.title {
-  @apply text-base text-center font-semibold;
+  @apply text-xs lg:text-base text-center font-semibold;
 }
 .section__wrapper .windows div a p.description {
-  @apply text-sm text-center;
+  @apply text-xs lg:text-sm text-center;
 }
 @media (min-width: 640px) {
   .section__wrapper .windows .div1 {
@@ -203,6 +203,39 @@
 }
 .section__wrapper .testimonials__cards li p.author {
   @apply text-sm tracking-widest text-center font-extralight;
+}
+.section__wrapper .number-grid {
+  @apply flex justify-center gap-6 sm:gap-8 lg:gap-16 flex-wrap;
+}
+.section__wrapper .number-grid li {
+  @apply w-[122px] sm:w-[192px] md:min-w-[280px];
+}
+.section__wrapper .number-grid li:nth-child(2) {
+  @apply lg:mt-6;
+}
+.section__wrapper .number-grid li:nth-child(3) {
+  @apply lg:mt-12;
+}
+.section__wrapper .number-grid li:nth-child(4) {
+  @apply lg:-mt-12;
+}
+.section__wrapper .number-grid li:nth-child(5) {
+  @apply lg:-mt-6;
+}
+.section__wrapper .number-grid li .number-grid__image {
+  @apply w-[122px] sm:w-[192px] md:min-w-[280px] h-[122px] sm:h-[192px] md:min-h-[280px] relative mb-4 shadow-md flex justify-center items-center bg-[#f4ece6];
+}
+.section__wrapper .number-grid li .number-grid__image img {
+  @apply object-cover rounded-lg w-16 md:w-32;
+}
+.section__wrapper .number-grid li .number-grid__image .number-grid__number {
+  @apply absolute right-0 translate-x-2 bottom-0 translate-y-2 w-10 h-10 bg-stone-50 flex justify-center items-center rounded-lg;
+}
+.section__wrapper .number-grid li .number-grid__image .number-grid__number p {
+  @apply w-10 md:w-12 h-10 md:h-12 absolute bg-blue-500 flex justify-center text-white items-center rounded-lg translate-y-2 translate-x-2 text-base md:text-lg shadow-md;
+}
+.section__wrapper .number-grid li > p {
+  @apply text-base lg:text-xl w-full pr-12;
 }
 
 .footer {
