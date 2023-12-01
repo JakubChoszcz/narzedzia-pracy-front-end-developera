@@ -536,6 +536,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.grid{
+  display: grid;
+}
+
 .navbar{
   position: fixed;
   top: 0px;
