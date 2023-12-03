@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // navbar
+    const navbar = document.querySelector('.navbar');
+
+    document.addEventListener('scroll', () => {
+        const { scrollY } = window;
+
+        if (scrollY > 50) {
+            navbar.classList.add('scrolled');
+            navbar.children[0].classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+            navbar.children[0].classList.remove('scrolled');
+        }
+    })
+
     // hamburger
     const hamburgerButton = document.querySelector('.navbar__hamburger-button');
     const hamburgerLinksList = document.querySelector('.navbar__links');
@@ -51,6 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let paginationBullets = [];
         let currentCard = 0;
 
+        const cardInterval = setInterval(() => {
+            autoCard();
+        }, 7000);
+
         createPaginationBullets();
         handleCards();
 
@@ -68,7 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
             cards.forEach((card, cardIndex) => {
                 card.classList.remove('active');
 
-                cardIndex === currentCard && card.classList.add('active');
+                setTimeout(() => {
+                    card.classList.remove('active-enter');
+                    cardIndex === currentCard && card.classList.add('active-enter');
+                }, 150);
+
+                setTimeout(() => {
+                    cardIndex === currentCard && card.classList.add('active');
+                }, 300);
             })
 
             handleArrows();
@@ -116,6 +142,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     bullet.classList.remove('active');
                 }
             })
+        }
+
+        function autoCard() {
+            if (currentCard === cards.length - 1) {
+                currentCard = 0;
+            } else {
+                currentCard = currentCard + 1;
+            }
+
+            handleCards();
         }
     })
 })

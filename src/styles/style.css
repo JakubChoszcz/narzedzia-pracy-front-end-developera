@@ -3,10 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 .navbar {
-  @apply fixed top-0 left-0 w-full bg-white shadow-md z-20;
+  @apply fixed top-0 left-0 w-full bg-white bg-opacity-40 shadow-none z-20 transition-all;
+}
+.navbar.scrolled {
+  @apply bg-opacity-100 shadow-md;
 }
 .navbar__wrapper {
-  @apply max-w-5xl px-4 py-4 lg:py-8 mx-auto flex justify-between items-center;
+  @apply max-w-5xl px-4 py-4 lg:py-8 mx-auto flex justify-between items-center transition-all;
+}
+.navbar__wrapper.scrolled {
+  @apply py-2 lg:py-4;
 }
 .navbar__wrapper .navbar__logo p {
   @apply text-base lg:text-xl flex flex-col sm:flex-row items-start sm:items-center gap-0 sm:gap-2 -z-10;
@@ -42,10 +48,10 @@
   @apply top-1/2 -translate-y-1/2 -rotate-45;
 }
 .navbar__wrapper .navbar__links {
-  @apply flex flex-col lg:flex-row justify-center items-center gap-4 fixed lg:static top-0 right-0 translate-x-full lg:translate-x-0 bg-white -z-10 lg:z-0 pt-20 lg:pt-0 pr-4 lg:pr-0 pb-8 lg:pb-0 pl-8 lg:pl-0 shadow-md lg:shadow-none transition-all duration-300;
+  @apply flex flex-col lg:flex-row justify-center items-center gap-4 fixed lg:static top-0 right-0 translate-x-full lg:translate-x-0 -z-10 lg:z-0 pt-20 lg:pt-0 pr-4 lg:pr-0 pb-8 lg:pb-0 pl-8 lg:pl-0 shadow-md lg:shadow-none transition-all duration-300;
 }
 .navbar__wrapper .navbar__links.active {
-  @apply translate-x-0;
+  @apply translate-x-0 bg-white;
 }
 .navbar__wrapper .navbar__links li {
   @apply text-base lg:font-extralight;
@@ -64,7 +70,7 @@
   @apply absolute top-0 left-0 w-full lg:w-2/5 block content-[""] bg-[#e6dace] h-1/2 lg:h-full;
 }
 .hero__wrapper {
-  @apply max-w-4xl mx-auto px-4 py-4 lg:py-32 grid lg:grid-cols-2 grid-cols-1 gap-4 lg:gap-8 relative z-10;
+  @apply max-w-4xl mx-auto pt-20 sm:pt-16 lg:pt-32 px-4 pb-4 lg:pb-32 grid lg:grid-cols-2 grid-cols-1 gap-4 lg:gap-8 relative z-10;
 }
 .hero__wrapper .hero__card {
   @apply bg-[#f4ece6] flex flex-col justify-center items-center h-full shadow-md;
@@ -103,7 +109,7 @@
   @apply text-xl lg:text-2xl;
 }
 .hero__wrapper .hero__content ul {
-  @apply flex justify-center items-center gap-2;
+  @apply flex justify-center items-start gap-2 flex-wrap;
 }
 .hero__wrapper .hero__content p {
   @apply text-sm lg:text-base tracking-wide;
@@ -113,7 +119,7 @@
   @apply py-8 lg:py-16;
 }
 .section:nth-of-type(odd) {
-  @apply bg-stone-50;
+  @apply bg-stone-50 bg-opacity-75;
 }
 .section__wrapper {
   @apply max-w-5xl mx-auto px-4;
@@ -125,7 +131,7 @@
   @apply grid grid-cols-2 sm:grid-cols-3 grid-rows-3 gap-4 sm:h-[478px] md:h-[640px] lg:h-[768px];
 }
 .section__wrapper .windows div {
-  @apply w-full sm:h-auto relative shadow-md transition-transform duration-300;
+  @apply w-full h-[248px] sm:h-auto relative shadow-md transition-transform duration-300;
 }
 .section__wrapper .windows div:hover {
   @apply scale-105;
@@ -190,10 +196,16 @@
   @apply bg-opacity-100;
 }
 .section__wrapper .testimonials__cards li {
-  @apply bg-[#f4ece6] bg-opacity-75 pt-20 px-4 lg:px-8 pb-12 shadow-md max-w-2xl mx-auto relative hidden;
+  @apply bg-[#f4ece6] bg-opacity-75 pt-20 px-4 lg:px-8 pb-12 shadow-md max-w-2xl mx-auto relative hidden opacity-0 transition-opacity;
+}
+.section__wrapper .testimonials__cards li.active-enter {
+  @apply block;
 }
 .section__wrapper .testimonials__cards li.active {
-  @apply block;
+  @apply opacity-100;
+}
+.section__wrapper .testimonials__cards li.active-leave {
+  @apply opacity-0;
 }
 .section__wrapper .testimonials__cards li img {
   @apply w-24 h-24 rounded-full absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2;
@@ -232,10 +244,34 @@
   @apply absolute right-0 translate-x-2 bottom-0 translate-y-2 w-10 h-10 bg-stone-50 flex justify-center items-center rounded-lg;
 }
 .section__wrapper .number-grid li .number-grid__image .number-grid__number p {
-  @apply w-10 md:w-12 h-10 md:h-12 absolute bg-blue-500 flex justify-center text-white items-center rounded-lg translate-y-2 translate-x-2 text-base md:text-lg shadow-md;
+  @apply w-10 md:w-12 h-10 md:h-12 absolute bg-blue-500 flex justify-center text-white items-center rounded-lg translate-y-1 md:translate-y-2 translate-x-1 md:translate-x-2 text-base md:text-lg shadow-md;
 }
 .section__wrapper .number-grid li > p {
   @apply text-base lg:text-xl w-full pr-12;
+}
+.section__wrapper .list {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+.section__wrapper .list > div h3 {
+  @apply text-lg mb-2;
+}
+.section__wrapper .list > div ul {
+  @apply flex flex-col gap-2 md:gap-4 pl-4;
+}
+.section__wrapper .list > div ul li {
+  @apply flex flex-col gap-1 relative;
+}
+.section__wrapper .list > div ul li::after {
+  @apply absolute w-2 h-2 block content-[""] left-0 top-0 translate-y-2 -translate-x-4 bg-blue-500;
+}
+.section__wrapper .list > div ul li p.lists__title {
+  @apply text-base font-semibold;
+}
+.section__wrapper .list > div ul li p.lists__date {
+  @apply text-sm text-gray-900 font-extralight;
+}
+.section__wrapper .list > div ul li p.lists__skills {
+  @apply text-sm;
 }
 
 .footer {
@@ -270,13 +306,13 @@ html {
   @apply scroll-smooth;
 }
 
+* {
+  @apply scroll-pt-14;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-image: url("../../assets/topography.svg");
-}
-
-main {
-  @apply pt-[76px] sm:pt-[60px] lg:pt-[90px];
 }
 
 .link {
