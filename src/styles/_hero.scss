@@ -6,7 +6,7 @@
     }
 
     &__wrapper {
-        @apply max-w-4xl mx-auto px-4 py-4 lg:py-32 grid lg:grid-cols-2 grid-cols-1 gap-4 lg:gap-8 relative z-10;
+        @apply max-w-4xl mx-auto pt-20 sm:pt-16 lg:pt-32 px-4 pb-4 lg:pb-32 grid lg:grid-cols-2 grid-cols-1 gap-4 lg:gap-8 relative z-10;
 
         .hero__card {
             @apply bg-[#f4ece6] flex flex-col justify-center items-center h-full shadow-md;
@@ -58,7 +58,7 @@
             }
 
             ul {
-                @apply flex justify-center items-center gap-2;
+                @apply flex justify-center items-start gap-2 flex-wrap;
             }
 
             p {

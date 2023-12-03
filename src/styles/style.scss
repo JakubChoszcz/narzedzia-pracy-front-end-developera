@@ -13,13 +13,13 @@ html {
     @apply scroll-smooth;
 }
 
+* {
+    @apply scroll-pt-14;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-image: url("../../assets/topography.svg");
-}
-
-main {
-    @apply pt-[76px] sm:pt-[60px] lg:pt-[90px];
 }
 
 .link {
